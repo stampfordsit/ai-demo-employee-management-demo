@@ -1,0 +1,91 @@
+# EmployeeManagementDemo
+
+A demo application built with **.NET 8.0** and **C#** that manages employee records in-memory, performing basic CRUD operations and calculating annual employee bonuses.
+
+---
+
+## 📂 Project Structure
+
+```text
+EmployeeManagementDemo/
+│
+├── EmployeeManagementDemo.sln       # Visual Studio Solution file
+│
+└── src/
+    └── EmployeeManagementDemo/      # Core Project directory
+        ├── Models/
+        │   └── Employee.cs          # Employee entity model
+        ├── Services/
+        │   └── EmployeeService.cs   # In-memory CRUD and calculation logic
+        ├── Program.cs               # Console Application Entry Point (with top-level statements)
+        └── EmployeeManagementDemo.csproj # MSBuild Project file
+```
+
+---
+
+## 🛠 Features & Methods
+
+### 1. `Employee` Model
+Represents an individual employee's data structure:
+- `Id` (`int`): Unique identifier of the employee.
+- `Name` (`string`): The name of the employee.
+- `Salary` (`decimal`): The current salary of the employee.
+
+### 2. `EmployeeService`
+Handles the core business logic using an in-memory data store (`List<Employee>`):
+
+| Method | Parameters | Return Type | Description |
+| :--- | :--- | :--- | :--- |
+| `CreateEmployee` | `Employee employee` | `void` | Adds a new employee record to the memory store. |
+| `GetEmployeeById` | `int id` | `Employee?` | Retrieves an employee by their ID. Returns `null` if not found. |
+| `UpdateSalary` | `int id`, `decimal newSalary` | `bool` | Updates the salary of the specified employee. Returns `false` if the employee is not found. |
+| `DeleteEmployee` | `int id` | `bool` | Removes the employee record from the store. Returns `false` if not found. |
+| `GetAnnualBonus` | `int id` | `decimal` | Calculates a **10% annual bonus** based on the employee's salary. Throws an `Exception` if the employee does not exist. |
+
+---
+
+## 🚀 How to Build and Run
+
+### Prerequisites
+- Install [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+
+### Run the Application
+You can run the console application from the root directory using the `--project` flag:
+
+```bash
+dotnet run --project src/EmployeeManagementDemo
+```
+
+Alternatively, navigate into the project directory and run it directly:
+
+```bash
+cd src/EmployeeManagementDemo
+dotnet run
+```
+
+### Build the Project
+To compile the project:
+
+```bash
+dotnet build
+```
+
+---
+
+## 💻 Example Usage
+
+Here is how the service is consumed in `Program.cs`:
+
+```csharp
+using EmployeeManagementDemo.Models;
+using EmployeeManagementDemo.Services;
+
+var service = new EmployeeService();
+
+// Create new employee records
+service.CreateEmployee(new Employee { Id = 1, Name = "Alice", Salary = 50000 });
+service.CreateEmployee(new Employee { Id = 2, Name = "Bob", Salary = 60000 });
+
+// Calculate and display annual bonus for Alice
+Console.WriteLine(service.GetAnnualBonus(1)); // Output: 5000 (10% of 50000)
+```

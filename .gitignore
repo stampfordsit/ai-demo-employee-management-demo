@@ -1,0 +1,27 @@
+## Ignore Visual Studio & VS Code files
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Ignore build outputs
+[Bb]in/
+[Oo]bj/
+artifacts/
+
+## Ignore user-specific files
+*.rsuser
+*.suo
+*.user
+*.userquery
+*.docstates
+
+## Ignore test results & diagnostic logs
+TestResults/
+*.log
+
+## Ignore OS generated files
+.DS_Store
+Thumbs.db
