@@ -89,3 +89,20 @@ service.CreateEmployee(new Employee { Id = 2, Name = "Bob", Salary = 60000 });
 // Calculate and display annual bonus for Alice
 Console.WriteLine(service.GetAnnualBonus(1)); // Output: 5000 (10% of 50000)
 ```
+
+---
+
+## 🎓 Graduate Research Project Information
+
+This platform is developed as part of a Master of Engineering (M.Eng.) thesis project at Dhurakij Pundit University.
+
+| Detail | Description |
+| :--- | :--- |
+| **Research Topic** | A Multi-Agent LLM-Based Approach for Automated Unit Test Generation and Optimization in C# Programs <br> *(แนวทางแบบ Multi-Agent ร่วมกับ Large Language Models สำหรับการสร้างและปรับปรุง Unit Test อัตโนมัติในโปรแกรมภาษา C#)* |
+| **Researcher** | **Mr. Attaphon Pungjaree** (Student ID: 645162020028) |
+| **Thesis Advisor** | **Dr. Thanaphat Khankajit** |
+| **Degree** | Master of Engineering (M.Eng.) |
+| **Major** | Artificial Intelligence and Data Engineering |
+| **College** | College of Engineering and Technology |
+| **University** | **Dhurakij Pundit University** (110/1-4 Prachachuen Road Laksi, Bangkok, 10210) |
+| **Contact** | ✉️ Email: [645162020028@dpu.ac.th](mailto:645162020028@dpu.ac.th) <br> 📞 Phone: 095-792-5262 |
