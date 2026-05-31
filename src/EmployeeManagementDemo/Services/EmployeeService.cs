@@ -70,4 +70,14 @@ public class EmployeeService
     {
         return _employees.Sum(e => e.Salary);
     }
+
+    public decimal GetTotalPayrollById(int id)
+    {
+        var employee = GetEmployeeById(id);
+
+        if (employee == null)
+            throw new Exception("Employee not found");
+
+        return employee.Salary;
+    }
 }
