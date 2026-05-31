@@ -29,6 +29,7 @@ EmployeeManagementDemo/
 Represents an individual employee's data structure:
 - `Id` (`int`): Unique identifier of the employee.
 - `Name` (`string`): The name of the employee.
+- `Position` (`string`): The current position or title of the employee.
 - `Salary` (`decimal`): The current salary of the employee.
 
 ### 2. `EmployeeService`
@@ -41,6 +42,8 @@ Handles the core business logic using an in-memory data store (`List<Employee>`)
 | `UpdateSalary` | `int id`, `decimal newSalary` | `bool` | Updates the salary of the specified employee. Returns `false` if the employee is not found. |
 | `DeleteEmployee` | `int id` | `bool` | Removes the employee record from the store. Returns `false` if not found. |
 | `GetAnnualBonus` | `int id` | `decimal` | Calculates a **10% annual bonus** based on the employee's salary. Throws an `Exception` if the employee does not exist. |
+| `PromoteEmployee` | `int id`, `string newPosition`, `decimal newSalary` | `bool` | Promotes the employee to a new position with a higher salary. Returns `false` if employee is not found. Throws an exception if the new salary is not greater. |
+| `GetTotalPayroll` | (None) | `decimal` | Returns the total sum of all employees' salaries in the memory store. |
 
 ---
 
@@ -89,6 +92,35 @@ service.CreateEmployee(new Employee { Id = 2, Name = "Bob", Salary = 60000 });
 // Calculate and display annual bonus for Alice
 Console.WriteLine(service.GetAnnualBonus(1)); // Output: 5000 (10% of 50000)
 ```
+
+---
+
+## 🤝 How to Contribute (Commit & PR Guide for Demo)
+
+If you are demonstrating how to contribute to this repository, you can follow these steps:
+
+1. **Create and switch to a new branch**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+2. **Make your code changes** (e.g., adding a new feature in `EmployeeService.cs`).
+
+3. **Stage and commit your changes**
+   ```bash
+   git add .
+   git commit -m "Add your descriptive commit message here"
+   ```
+
+4. **Push the branch to the remote repository**
+   ```bash
+   git push -u origin feature/your-feature-name
+   ```
+
+5. **Create a Pull Request (PR)**
+   - Go to the GitHub repository page.
+   - Click the **Compare & pull request** button that automatically appears for your pushed branch.
+   - Fill in the PR title and description, then click **Create pull request**.
 
 ---
 
