@@ -49,4 +49,20 @@ public class EmployeeService
 
         return employee.Salary * 0.10m;
     }
+
+    public bool PromoteEmployee(int id, string newPosition, decimal newSalary)
+    {
+        var employee = GetEmployeeById(id);
+
+        if (employee == null)
+            return false;
+
+        if (newSalary <= employee.Salary)
+            throw new ArgumentException("New salary must be greater than the current salary.");
+
+        employee.Position = newPosition;
+        employee.Salary = newSalary;
+
+        return true;
+    }
 }
