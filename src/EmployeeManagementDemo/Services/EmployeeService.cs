@@ -65,4 +65,9 @@ public class EmployeeService
 
         return true;
     }
+
+    public decimal GetTotalPayroll()
+    {
+        return _employees.Sum(e => e.Salary);
+    }
 }
