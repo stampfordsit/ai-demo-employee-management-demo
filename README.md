@@ -54,8 +54,14 @@ The project includes a GitHub Actions workflow (`ai-unit-test.yml`) designed to 
 
 **Workflow Details:**
 - **Trigger:** Pull Requests containing changes to `*.cs` files.
-- **Action:** Sends a POST request to an external webhook.
+- **Action:** Sends a POST request to an external webhook (Ngrok).
 - **Payload Data:** Includes repository URL, PR number, branch name, the AI workflow mode (`ultimate_hybrid`), and the specified LLM model (`gptmini`).
+
+**Pro Tips for CI/CD Pipeline:**
+- **Ngrok Static Domain:** To avoid changing the URL in `.yml` every time Ngrok restarts, claim a free static domain in your Ngrok dashboard and run it using: `ngrok http --domain=your-static-domain.ngrok-free.dev 3005`.
+- **Model Selection:** You can easily swap the AI model by modifying the `"model"` field in `.github/workflows/ai-unit-test.yml` (Supported options: `gptmini`, `gpt4o`, `deepseek`, `llama`).
+- **Code Viewer:** Once the webhook completes, you can view the exact AI-generated unit test code directly inside the popup on the **CI/CD Hook Logs** tab in your Dashboard!
+- **Auto-Reload:** The Dashboard tabs will now automatically reload to fetch the latest logs whenever you switch between them.
 
 ---
 
@@ -133,6 +139,11 @@ If you are demonstrating how to contribute to this repository, you can follow th
    - Go to the GitHub repository page.
    - Click the **Compare & pull request** button that automatically appears for your pushed branch.
    - Fill in the PR title and description, then click **Create pull request**.
+
+6. **Wait for CI/CD & Merge (The Gatekeeper)**
+   - **Do not merge immediately!** Wait for the GitHub Actions (AI Unit Test Generator) to finish running.
+   - Once the AI finishes, it will automatically push the missing unit tests directly into your open PR.
+   - Review the AI-generated code. When all checks are green, click **Merge pull request** to safely integrate your code.
 
 ---
 
