@@ -9,6 +9,10 @@ A demo application built with **.NET 8.0** and **C#** that manages employee reco
 ```text
 EmployeeManagementDemo/
 │
+├── .github/
+│   └── workflows/
+│       └── ai-unit-test.yml         # GitHub Actions workflow for AI Unit Test Generation
+│
 ├── EmployeeManagementDemo.sln       # Visual Studio Solution file
 │
 └── src/
@@ -44,6 +48,9 @@ Handles the core business logic using an in-memory data store (`List<Employee>`)
 | `GetAnnualBonus` | `int id` | `decimal` | Calculates a **10% annual bonus** based on the employee's salary. Throws an `Exception` if the employee does not exist. |
 | `PromoteEmployee` | `int id`, `string newPosition`, `decimal newSalary` | `bool` | Promotes the employee to a new position with a higher salary. Returns `false` if employee is not found. Throws an exception if the new salary is not greater. |
 | `GetTotalPayroll` | (None) | `decimal` | Returns the total sum of all employees' salaries in the memory store. |
+
+### 3. CI/CD & Automation (`.github/workflows`)
+The project includes a GitHub Actions workflow (`ai-unit-test.yml`) designed to automatically trigger an **AI Unit Test Generation Webhook** whenever a Pull Request modifying `.cs` files is created. This ensures seamless automated testing for every code contribution.
 
 ---
 
