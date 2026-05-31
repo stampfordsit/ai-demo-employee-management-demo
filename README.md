@@ -52,6 +52,11 @@ Handles the core business logic using an in-memory data store (`List<Employee>`)
 ### 3. CI/CD & Automation (`.github/workflows`)
 The project includes a GitHub Actions workflow (`ai-unit-test.yml`) designed to automatically trigger an **AI Unit Test Generation Webhook** whenever a Pull Request modifying `.cs` files is created. This ensures seamless automated testing for every code contribution.
 
+**Workflow Details:**
+- **Trigger:** Pull Requests containing changes to `*.cs` files.
+- **Action:** Sends a POST request to an external webhook.
+- **Payload Data:** Includes repository URL, PR number, branch name, the AI workflow mode (`ultimate_hybrid`), and the specified LLM model (`gptmini`).
+
 ---
 
 ## 🚀 How to Build and Run
