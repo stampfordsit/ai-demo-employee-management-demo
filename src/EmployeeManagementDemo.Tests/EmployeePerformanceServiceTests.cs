@@ -1,14 +1,13 @@
-using BenchmarkSourceProject;
 using EmployeeManagementDemo.Services;
 using Xunit;
 
 namespace BenchmarkTestProject.Tests
 {
-    public class TestClassName
+    public class EmployeePerformanceServiceTests
     {
         private readonly EmployeePerformanceService _employeePerformanceService;
 
-        public TestClassName()
+        public EmployeePerformanceServiceTests()
         {
             _employeePerformanceService = new EmployeePerformanceService();
         }
@@ -89,3 +88,4 @@ namespace BenchmarkTestProject.Tests
         }
     }
 }
+

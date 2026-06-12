@@ -1,17 +1,16 @@
-using BenchmarkSourceProject;
 using Xunit;
 using EmployeeManagementDemo.Models;
 using EmployeeManagementDemo.Services;
 
 namespace BenchmarkTestProject.Tests
 {
-    public class TestClassName
+    public class ProgramTests
     {
-        private readonly SourceService _sourceService;
+        private readonly EmployeeService _EmployeeService;
 
-        public TestClassName()
+        public ProgramTests()
         {
-            _sourceService = new SourceService();
+            _EmployeeService = new EmployeeService();
         }
 
         [Fact]
@@ -21,10 +20,10 @@ namespace BenchmarkTestProject.Tests
             var employee = new Employee { Id = 1, Name = "Alice", Salary = 50000 };
 
             // Act
-            _sourceService.CreateEmployee(employee);
+            _EmployeeService.CreateEmployee(employee);
 
             // Assert
-            Assert.True(_sourceService.GetAnnualBonus(1) > 0);
+            Assert.True(_EmployeeService.GetAnnualBonus(1) > 0);
         }
 
         [Fact]
@@ -32,10 +31,10 @@ namespace BenchmarkTestProject.Tests
         {
             // Arrange
             var employee = new Employee { Id = 1, Name = "Alice", Salary = 50000 };
-            _sourceService.CreateEmployee(employee);
+            _EmployeeService.CreateEmployee(employee);
 
             // Act
-            var bonus = _sourceService.GetAnnualBonus(1);
+            var bonus = _EmployeeService.GetAnnualBonus(1);
 
             // Assert
             Assert.Equal(5000, bonus);
@@ -45,7 +44,7 @@ namespace BenchmarkTestProject.Tests
         public void GetAnnualBonus_InvalidEmployeeId_ZeroReturned()
         {
             // Act
-            var bonus = _sourceService.GetAnnualBonus(1);
+            var bonus = _EmployeeService.GetAnnualBonus(1);
 
             // Assert
             Assert.Equal(0, bonus);
@@ -56,10 +55,10 @@ namespace BenchmarkTestProject.Tests
         {
             // Arrange
             var employee = new Employee { Id = 1, Name = "Alice", Salary = 50000 };
-            _sourceService.CreateEmployee(employee);
+            _EmployeeService.CreateEmployee(employee);
 
             // Act and Assert
-            Assert.Throws<Exception>(() => _sourceService.CreateEmployee(employee));
+            Assert.Throws<Exception>(() => _EmployeeService.CreateEmployee(employee));
         }
 
         [Fact]
@@ -69,7 +68,7 @@ namespace BenchmarkTestProject.Tests
             var employee = new Employee { Id = 1, Name = "Alice", Salary = -50000 };
 
             // Act and Assert
-            Assert.Throws<Exception>(() => _sourceService.CreateEmployee(employee));
+            Assert.Throws<Exception>(() => _EmployeeService.CreateEmployee(employee));
         }
 
         [Fact]
@@ -79,7 +78,7 @@ namespace BenchmarkTestProject.Tests
             var employee = new Employee { Id = 1, Name = "Alice", Salary = 0 };
 
             // Act and Assert
-            Assert.Throws<Exception>(() => _sourceService.CreateEmployee(employee));
+            Assert.Throws<Exception>(() => _EmployeeService.CreateEmployee(employee));
         }
 
         [Fact]
@@ -88,12 +87,12 @@ namespace BenchmarkTestProject.Tests
             // Arrange
             var employee1 = new Employee { Id = 1, Name = "Alice", Salary = 50000 };
             var employee2 = new Employee { Id = 2, Name = "Bob", Salary = 60000 };
-            _sourceService.CreateEmployee(employee1);
-            _sourceService.CreateEmployee(employee2);
+            _EmployeeService.CreateEmployee(employee1);
+            _EmployeeService.CreateEmployee(employee2);
 
             // Act
-            var bonus1 = _sourceService.GetAnnualBonus(1);
-            var bonus2 = _sourceService.GetAnnualBonus(2);
+            var bonus1 = _EmployeeService.GetAnnualBonus(1);
+            var bonus2 = _EmployeeService.GetAnnualBonus(2);
 
             // Assert
             Assert.Equal(5000, bonus1);
@@ -101,3 +100,4 @@ namespace BenchmarkTestProject.Tests
         }
     }
 }
+

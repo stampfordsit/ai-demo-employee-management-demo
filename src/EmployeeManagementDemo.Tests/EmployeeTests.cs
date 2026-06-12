@@ -3,7 +3,7 @@ using EmployeeManagementDemo.Models;
 
 namespace BenchmarkTestProject.Tests
 {
-    public class TestClassName
+    public class EmployeeTests
     {
         [Fact]
         public void Employee_DefaultConstructor_IdIsZero()
@@ -104,3 +104,4 @@ namespace BenchmarkTestProject.Tests
         }
     }
 }
+
